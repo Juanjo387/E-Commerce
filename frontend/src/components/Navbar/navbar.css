@@ -1,0 +1,87 @@
+.navbar-brand img {
+	width: 10rem !important;
+}
+
+.navbar-brand {
+	display: flex;
+	align-items: center;
+	font-family: system-ui;
+}
+
+.dropdown-menu.show {
+	position: absolute;
+	left: -276px;
+	top: 37px;
+	width: 196px;
+	border-radius: 0;
+}
+
+.dropdown-toggle:empty::after {
+	margin-left: 0;
+	opacity: 0;
+}
+
+.d-flex {
+	display: flex !important;
+}
+
+.currency-button {
+	margin-top: 10px;
+	background-color: #1ba94c;
+	border: none;
+}
+
+@media screen and (max-width: 989px) {
+	.dropdown-menu.show {
+		position: absolute;
+		top: 5px;
+		left: 0px;
+		width: 100%;
+		border-radius: 0;
+	}
+	.d-flex {
+		width: 100%;
+		margin-left: 1rem;
+	}
+	.shop__products {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+		gap: 15px;
+		/* margin-left: 0rem; */
+	}
+}
+
+.me-auto {
+	margin-right: inherit !important;
+}
+
+@media (min-width: 992px) {
+	.navbar-expand-lg .navbar-collapse {
+		display: flex !important;
+		flex-basis: auto;
+		justify-content: right;
+	}
+}
+
+/* Responsive Modifications */
+@media screen and (max-width: 576px) {
+	.navbar-brand img {
+		width: 8rem !important;
+	}
+
+	.d-flex {
+		margin-left: 0;
+	}
+}
+
+.sale-button {
+	width: 100%;
+	display: block;
+	margin-bottom: 10px;
+	background-color: #1ba94c;
+	border: none;
+}
+
+.mt-2 {
+	margin-top: 10px;
+}

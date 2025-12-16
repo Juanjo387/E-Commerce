@@ -1,0 +1,68 @@
+.exchange-product {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 3rem;
+}
+
+.exchange-container {
+    display: flex;
+    justify-content: space-around;
+    width: 70%;
+    margin-top: 3rem;
+}
+
+.exchange-product h1 {
+    font-size:xx-large;
+}
+
+.exchange-container h2 {
+    font-size:x-large;
+}
+
+.exchange-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 40%;
+}
+
+.exchange-column select {
+    width: 100%;
+    padding: 0.5rem;
+    margin-top: 1rem;
+    border-radius: 5px;
+}
+
+.product-box-content {
+    border: 1px solid #ccc;
+    padding: 0.8rem;
+    margin-top: 1rem;
+    text-align: left;
+    height: 50vh;
+    border: 1px solid #ccc;
+	border-radius: 5px;
+	background-color: #fff;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.product-box-content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+	margin-bottom: 20px;
+}
+
+.exchange-btn {
+    margin-top: 2rem;
+    padding: 0.8rem 1rem;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.exchange-btn:hover {
+    background-color: #45a049;
+}

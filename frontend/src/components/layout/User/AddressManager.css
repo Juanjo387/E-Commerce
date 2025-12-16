@@ -1,0 +1,54 @@
+.address-manager-container{
+    border-radius: 0.3em;
+    border: 1px solid #ccc;
+	padding: 2em 2.7em;
+	margin-right: 10em;
+	background-color: #f9f9f9;
+}
+
+.manage-address-heading{
+    font-size: xx-large;
+    font-weight: 300;
+    padding-bottom: 5%;
+}
+
+.save-address-heading{
+    text-align: center;
+    padding-bottom: 1rem;
+}
+
+.address-item{
+    border: 1px groove #ccc;
+    padding: 1.2em;
+    border-radius: 0.7em;
+    width: 20em;
+    background-color: rgb(243, 243, 243);
+}
+
+.save-address-btns{
+    margin-right: 1em;
+    background-color: #cecece;
+    border: 1px groove #ccc;
+    color: rgb(0, 0, 0);
+    font-weight: 600;
+}
+.save-address-btns:hover{
+    background-color: #bbbbbb;
+}
+
+.address-form-btn{
+    background-color: #4caf50;
+    border: none;
+}
+
+.no-saved-addr{
+    text-align: center;
+}
+
+div[disabled]{
+  display: none;
+}
+
+ul[disabled]{
+    display: none;
+}

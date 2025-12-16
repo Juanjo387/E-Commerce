@@ -1,0 +1,29 @@
+name: Lint
+on:
+  push:
+    branches:
+      - "*"
+env: 
+  NODE_VERSION: 16
+
+jobs:
+  check:
+    name: Lint Code and Check Format
+    runs-on: ubuntu-latest 
+    steps:
+      - name: Install NodeJS
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Code Checkout
+        uses: actions/checkout@v2
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Install Node Modules
+        run: bash setup.sh && npm install && npm install --prefix frontend
+
+      - name: Check Code Linting
+        run: npm run lint

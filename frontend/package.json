@@ -1,0 +1,64 @@
+{
+	"name": "frontend",
+	"version": "0.0.0",
+	"private": true,
+	"scripts": {
+		"start": "PORT=8000 BROWSER=none react-scripts start",
+		"test": "react-scripts test --watchAll=false --env=jsdom --verbose --testResultsProcessor jest-junit",
+		"test:task1": "(react-scripts test test/task1/App.test.js --watchAll=false --env=jsdom --verbose --colors --testResultsProcessor=jest-junit); (mv junit.xml ../output/task1.xml)",
+		"test:task2": "(react-scripts test test/task2 --watchAll=false --env=jsdom --verbose --colors --testResultsProcessor=jest-junit); (mv junit.xml ../output/task2.xml)",
+		"test:task3": "(react-scripts test test/task3 --watchAll=false --env=jsdom --verbose --colors --testResultsProcessor=jest-junit); (mv junit.xml ../output/task3.xml)",
+		"test:task4": "(react-scripts test test/task4 --watchAll=false --env=jsdom --verbose --colors --testResultsProcessor=jest-junit); (mv junit.xml ../output/task4.xml)",
+		"test:task7": "(react-scripts test test/task7 --watchAll=false --env=jsdom --verbose --colors --testResultsProcessor=jest-junit); (mv junit.xml ../output/task7.xml)",
+		"test:task12": "(react-scripts test test/task12 --watchAll=false --env=jsdom --verbose --colors --testResultsProcessor=jest-junit); (mv junit.xml ../output/task12.xml)",
+		"test:task13": "(react-scripts test test/task13 --watchAll=false --env=jsdom --verbose --colors --testResultsProcessor=jest-junit); (mv junit.xml ../output/task13.xml)",
+		"test:task14": "(react-scripts test test/task14 --watchAll=false --env=jsdom --verbose --colors --testResultsProcessor=jest-junit); (mv junit.xml ../output/task14.xml)",
+		"test:task15": "(react-scripts test test/task15 --watchAll=false --env=jsdom --verbose --colors --testResultsProcessor=jest-junit); (mv junit.xml ../output/task15.xml)",
+		"test:task16": "(react-scripts test test/task16 --watchAll=false --env=jsdom --verbose --colors --testResultsProcessor=jest-junit); (mv junit.xml ../output/task16.xml)",
+		"eject": "react-scripts eject",
+		"lint": "eslint src --ext js,jsx",
+		"lint:fix": "eslint --fix src --ext js,jsx",
+		"format": "prettier --write \"./**/*.{js,jsx,css,scss,json,md}\"",
+		"format:check": "prettier --check \"./**/*.{js,jsx,css,scss,json,md}\""
+	},
+	"dependencies": {
+		"@testing-library/jest-dom": "5.16.5",
+		"@testing-library/react": "13.4.0",
+		"bootstrap": "^5.2.3",
+		"react": "18.2.0",
+		"react-bootstrap": "^2.7.4",
+		"react-dom": "18.2.0",
+		"react-hot-toast": "^2.4.1",
+		"react-icons": "^4.8.0",
+		"react-router-dom": "^6.11.1",
+		"react-scripts": "5.0.1",
+		"web-vitals": "2.1.4"
+	},
+	"devDependencies": {
+		"babel-eslint": "^10.1.0",
+		"eslint": "^8.44.0",
+		"eslint-plugin-react": "^7.32.2",
+		"jest-junit": "15.0.0",
+		"fetch-mock": "^9.11.0",
+		"node-fetch": "^2.6.1",
+		"prettier": "^3.0.0"
+	},
+	"eslintConfig": {
+		"extends": [
+			"react-app",
+			"react-app/jest"
+		]
+	},
+	"browserslist": {
+		"production": [
+			">0.2%",
+			"not dead",
+			"not op_mini all"
+		],
+		"development": [
+			"last 1 chrome version",
+			"last 1 firefox version",
+			"last 1 safari version"
+		]
+	}
+}

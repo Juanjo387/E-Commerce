@@ -1,0 +1,287 @@
+.quota-management-container {
+	box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+	border-radius: 16px;
+	background: #fff;
+	padding: 32px;
+	min-height: 700px;
+	display: flex;
+	flex-direction: column;
+}
+
+.quota-management-title {
+	font-size: 2rem;
+	font-weight: 600;
+	margin-bottom: 1.5rem;
+	color: #222;
+	letter-spacing: 0.5px;
+}
+
+.quota-management-controls {
+	margin-bottom: 2rem;
+	display: flex;
+	align-items: center;
+	gap: 12px;
+}
+
+.quota-management-label {
+	font-weight: 500;
+	font-size: 16px;
+	margin-bottom: 0;
+}
+
+.quota-management-select {
+	border-radius: 6px;
+	border: 1px solid #bbb;
+	font-size: 1rem;
+	background: #f8f8f8;
+	min-width: 300px;
+	padding: 8px 12px;
+}
+
+.quota-management-content {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 2rem;
+	flex: 1;
+}
+
+.quota-section {
+	background: #f7fafd;
+	border-radius: 12px;
+	padding: 24px;
+	border: 1px solid #e0e0e0;
+}
+
+.quota-section-title {
+	font-size: 1.25rem;
+	font-weight: 600;
+	margin-bottom: 1.5rem;
+	color: #222;
+}
+
+.usage-grid {
+	display: grid;
+	gap: 1rem;
+	margin-bottom: 2rem;
+}
+
+.usage-card {
+	background: #fff;
+	border-radius: 8px;
+	padding: 16px;
+	border: 1px solid #e0e0e0;
+	box-shadow: 0 2px 8px rgba(74, 144, 226, 0.07);
+}
+
+.usage-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 12px;
+}
+
+.usage-label {
+	font-weight: 600;
+	color: #222;
+	font-size: 0.9rem;
+}
+
+.usage-badge {
+	font-size: 0.75rem;
+	padding: 4px 8px;
+	border-radius: 4px;
+	font-weight: 500;
+}
+
+.badge-success {
+	background-color: #d4edda;
+	color: #155724;
+}
+
+.badge-warning {
+	background-color: #fff3cd;
+	color: #856404;
+}
+
+.badge-danger {
+	background-color: #f8d7da;
+	color: #721c24;
+}
+
+.usage-progress {
+	height: 8px;
+	background-color: #e9ecef;
+	border-radius: 4px;
+	overflow: hidden;
+	margin-bottom: 8px;
+}
+
+.usage-progress-bar {
+	height: 100%;
+	transition: width 0.6s ease;
+	border-radius: 4px;
+}
+
+.progress-success {
+	background-color: #28a745;
+}
+
+.progress-warning {
+	background-color: #ffc107;
+}
+
+.progress-danger {
+	background-color: #dc3545;
+}
+
+.usage-details {
+	font-size: 0.875rem;
+	color: #6c757d;
+	font-weight: 500;
+}
+
+.reset-section {
+	border-top: 1px solid #e0e0e0;
+	padding-top: 1.5rem;
+}
+
+.reset-title {
+	font-size: 1rem;
+	font-weight: 600;
+	margin-bottom: 1rem;
+	color: #222;
+}
+
+.reset-buttons {
+	display: flex;
+	gap: 8px;
+	flex-wrap: wrap;
+}
+
+.reset-buttons .btn {
+	border-radius: 6px;
+	font-weight: 500;
+	padding: 6px 12px;
+	font-size: 0.875rem;
+}
+
+.quota-form-section {
+	background: #f7fafd;
+	border-radius: 12px;
+	padding: 24px;
+	border: 1px solid #e0e0e0;
+}
+
+.quota-form-grid {
+	display: grid;
+	gap: 1rem;
+}
+
+.form-group {
+	display: flex;
+	flex-direction: column;
+}
+
+.form-label {
+	font-weight: 600;
+	color: #222;
+	margin-bottom: 6px;
+	font-size: 0.9rem;
+}
+
+.form-control {
+	border: 1px solid #bbb;
+	border-radius: 6px;
+	padding: 8px 12px;
+	background: #f8f8f8;
+	font-size: 0.9rem;
+	transition:
+		border-color 0.15s ease-in-out,
+		box-shadow 0.15s ease-in-out;
+}
+
+.form-control:focus {
+	border-color: #6495ed;
+	outline: 0;
+	box-shadow: 0 0 0 0.2rem rgba(100, 149, 237, 0.25);
+	background: #fff;
+}
+
+.update-button-container {
+	grid-column: 1 / -1;
+	margin-top: 1rem;
+}
+
+.update-quotas-btn {
+	background-color: #6495ed;
+	border-color: #6495ed;
+	padding: 10px 24px;
+	font-weight: 600;
+	border-radius: 6px;
+	width: 100%;
+}
+
+.update-quotas-btn:hover {
+	background-color: #5a87db;
+	border-color: #5a87db;
+}
+
+.update-quotas-btn:disabled {
+	background-color: #ccc;
+	border-color: #ccc;
+	cursor: not-allowed;
+}
+
+.no-user-selected {
+	text-align: center;
+	padding: 3rem;
+	color: #888;
+	font-size: 1.1rem;
+	background: #f7fafd;
+	border-radius: 12px;
+	border: 1px solid #e0e0e0;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+	.quota-management-content {
+		grid-template-columns: 1fr;
+		gap: 1.5rem;
+	}
+}
+
+@media (max-width: 768px) {
+	.quota-management-container {
+		padding: 20px;
+		margin: 10px;
+	}
+
+	.quota-management-controls {
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 8px;
+	}
+
+	.quota-management-select {
+		min-width: 100%;
+	}
+
+	.quota-section,
+	.quota-form-section {
+		padding: 16px;
+	}
+
+	.usage-header {
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 6px;
+	}
+
+	.reset-buttons {
+		flex-direction: column;
+	}
+
+	.reset-buttons .btn {
+		width: 100%;
+	}
+}

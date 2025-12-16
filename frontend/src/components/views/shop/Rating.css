@@ -1,0 +1,19 @@
+.star-rating {
+	color: var(--primary-color);
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	padding: 2rem;
+}
+
+.star.highlight {
+	color: var(--primary-hover);
+}
+
+.star-rating img {
+	width: 25px;
+}
+
+i {
+	font-style: normal;
+}

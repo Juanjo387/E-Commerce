@@ -1,0 +1,15 @@
+{
+  "files.exclude": {
+    "**/frontend/src/test/task12": true,
+    "**/frontend/src/test/task13": true,
+    "**/backend/test/task11": true,
+    "**/backend/test/task10": true,
+    "**/backend/test/task5": true,
+    "**/frontend/src/test/task7": true,
+    "**/backend/test/task6": true,
+    "**/frontend/src/test/task4": true,
+    "**/frontend/src/test/task1": true,
+    "**/frontend/src/test/task3": true,
+    "**/frontend/src/test/task2": true
+  }
+}

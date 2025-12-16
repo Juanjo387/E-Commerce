@@ -1,0 +1,44 @@
+.form-container {
+	max-width: 400px;
+	margin: 0 auto;
+	margin-top: 4rem;
+	padding: 20px;
+	background-color: #f9f9f9;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+}
+
+.title {
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+.login-form .form-control {
+	margin-bottom: 10px;
+}
+
+.btn-primary {
+	width: 100%;
+}
+button[type="submit"]:hover {
+	background-color: #45a049;
+}
+.btn:hover {
+	background-color: #45a049 !important;
+	border-color: #45a049 !important;
+}
+.new-user {
+	padding-top: 1cm;
+	display: flex;
+	justify-content: center;
+}
+.admin-login {
+	padding-top: 0.1cm;
+	display: flex;
+	justify-content: center;
+}
+.forgot-password {
+	padding-top: 0.1cm;
+	display: flex;
+	justify-content: center;
+}

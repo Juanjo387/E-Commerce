@@ -1,0 +1,33 @@
+.order-list-container {
+	margin: 2rem;
+	max-height: 500px;
+	background-color: #f5f5f5;
+	padding: 20px;
+	border-radius: 5px;
+	overflow-y: scroll;
+	width: 40vw;
+	margin: 0 auto;
+	margin-top: 3rem;
+}
+.order-item {
+	margin-bottom: 20px;
+	padding: 10px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+}
+
+.order-item h4 {
+	font-size: 12px;
+	margin-bottom: 10px;
+}
+
+.order-item p {
+	font-size: 14px;
+	margin-bottom: 5px;
+}
+
+@media (max-width: 768px) {
+	.order-list-container {
+		width: 81vw;
+	}
+}
