@@ -18,6 +18,7 @@ export const registerController = async (req, res) => {
 			email,
 			password: hashedPassword,
 			role: "user",
+			discountPoints: 0, // Initialize discount points to 0
 		};
 
 		let results = await collection.find({ email: newUser.email }).toArray();

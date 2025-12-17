@@ -31,14 +31,26 @@ const NavScrollExample = ({ setIsSaleActive }) => {
 
 	useEffect(() => {
 		const fetchUserPoints = async () => {
+			if (!auth?.token) {
+				setUserPoints(0);
+				return;
+			}
 			try {
 				const baseURL = generateBaseURL();
-				const response = await fetch(`${baseURL}/api/discount/points`);
-				const data = await response.json();
-				setUserPoints(data.points);
-				console.log(data.points);
+				const response = await fetch(`${baseURL}/api/discount/points`, {
+					headers: {
+						Authorization: auth.token,
+					},
+				});
+				if (response.ok) {
+					const data = await response.json();
+					setUserPoints(data.points || 0);
+				} else {
+					setUserPoints(0);
+				}
 			} catch (error) {
 				console.error("Error fetching user points:", error);
+				setUserPoints(0);
 			}
 		};
 
@@ -53,7 +65,7 @@ const NavScrollExample = ({ setIsSaleActive }) => {
 		return () => {
 			window.removeEventListener("pointsUpdated", handlePointsUpdated);
 		};
-	}, []);
+	}, [auth?.token]);
 
 	useEffect(() => {
 		const handleClickOutside = (event) => {

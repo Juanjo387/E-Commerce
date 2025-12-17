@@ -14,6 +14,8 @@ import ratingsRoute from "./routes/ratings.js";
 import inventoryRoute from "./routes/inventory.js";
 import backupRoutes from "./routes/backup.js";
 import quotaRoutes from "./routes/quotas.js";
+import discountRoutes from "./routes/discount.js";
+import reviewsRoutes from "./routes/reviews.js";
 
 const PORT = process.env.PORT || 8080;
 const app = express();
@@ -34,6 +36,8 @@ app.use("/api/ratings", ratingsRoute);
 app.use("/api/inventory", inventoryRoute);
 app.use("/api/backup", backupRoutes);
 app.use("/api/quotas", quotaRoutes);
+app.use("/api/discount", discountRoutes);
+app.use("/api/reviews", reviewsRoutes);
 
 // Global error handling
 app.use((err, req, res, next) => {

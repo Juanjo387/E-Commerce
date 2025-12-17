@@ -2,6 +2,7 @@ import React, { useContext, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { ShopContext } from "../../../contexts/shopContext";
 import { useCurrency } from "../../../contexts/currencyContext";
+import { useAuth } from "../../../contexts/onAuth";
 
 import "./cart.css";
 import emptycart from "./empty-cart.jpg";
@@ -14,6 +15,7 @@ export const Cart = () => {
 	const { cartItems, getTotalCartAmount } = useContext(ShopContext);
 	const totalAmount = getTotalCartAmount();
 	const navigate = useNavigate();
+	const [auth] = useAuth();
 
 	const [userPoints, setUserPoints] = useState(0);
 	const [discountOptions, setDiscountOptions] = useState([]);
@@ -26,9 +28,15 @@ export const Cart = () => {
 		const fetchUserPoints = async () => {
 			try {
 				const baseURL = generateBaseURL();
-				const response = await fetch(`${baseURL}/api/discount/points`);
-				const data = await response.json();
-				setUserPoints(data.points);
+				const response = await fetch(`${baseURL}/api/discount/points`, {
+					headers: {
+						Authorization: auth?.token || "",
+					},
+				});
+				if (response.ok) {
+					const data = await response.json();
+					setUserPoints(data.points);
+				}
 			} catch (error) {
 				console.error("Error fetching user points:", error);
 			}
@@ -38,16 +46,30 @@ export const Cart = () => {
 			try {
 				const baseURL = generateBaseURL();
 				const response = await fetch(`${baseURL}/api/discount/options`);
-				const data = await response.json();
-				setDiscountOptions(data);
+				if (response.ok) {
+					const data = await response.json();
+					setDiscountOptions(data);
+				}
 			} catch (error) {
 				console.error("Error fetching discount options:", error);
 			}
 		};
 
-		fetchUserPoints();
+		if (auth?.token) {
+			fetchUserPoints();
+		}
 		fetchDiscountOptions();
-	}, []);
+	}, [auth?.token]);
+
+	// Update discounted total when totalAmount or selectedDiscount changes
+	useEffect(() => {
+		if (selectedDiscount) {
+			const discountAmount = (selectedDiscount / 100) * totalAmount;
+			setDiscountedTotal(totalAmount - discountAmount);
+		} else {
+			setDiscountedTotal(totalAmount);
+		}
+	}, [totalAmount, selectedDiscount]);
 
 	const applyDiscount = async () => {
 		try {
@@ -61,17 +83,26 @@ export const Cart = () => {
 				method: "POST",
 				headers: {
 					"Content-Type": "application/json",
+					Authorization: auth?.token || "",
 				},
 				body: JSON.stringify({ discount: selectedDiscount }),
 			});
-			const data = await response.json();
-			if (data.error) {
-				alert(data.error);
+			
+			if (!response.ok) {
+				const errorData = await response.json();
+				alert(errorData.error || "Failed to apply discount");
 				return;
 			}
 
+			const data = await response.json();
+			
+			// Calculate discounted total
 			const discountAmount = (selectedDiscount / 100) * totalAmount;
-			setDiscountedTotal(totalAmount - discountAmount);
+			const newDiscountedTotal = totalAmount - discountAmount;
+			setDiscountedTotal(newDiscountedTotal);
+			
+			// Update local points state
+			setUserPoints(data.updatedPoints);
 
 			// Dispatch custom event to update points in the navbar
 			const pointsUpdatedEvent = new CustomEvent("pointsUpdated", {
@@ -82,6 +113,7 @@ export const Cart = () => {
 			setShowDiscountModal(false);
 		} catch (error) {
 			console.error("Error applying discount:", error);
+			alert("An error occurred while applying discount");
 		}
 	};
 
@@ -121,7 +153,7 @@ export const Cart = () => {
 							Subtotal: ${convertPrice(totalAmount)}
 						</p>
 						{selectedDiscount && (
-							<p>Discounted Total: ${discountedTotal}</p>
+							<p data-testid="discounted-total">Discounted Total: ${convertPrice(discountedTotal)}</p>
 						)}
 						<button onClick={() => navigate("/")}>
 							Continue Shopping

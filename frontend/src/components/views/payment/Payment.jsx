@@ -45,13 +45,35 @@ const Payment = () => {
 				},
 			};
 
-			await fetch(`${baseURL}/api/orders`, {
+			const response = await fetch(`${baseURL}/api/orders`, {
 				method: "POST",
 				headers: {
 					"Content-Type": "application/json",
 				},
 				body: JSON.stringify(orderData),
 			});
+
+			if (response.ok) {
+				// Fetch updated points after successful order
+				try {
+					const pointsResponse = await fetch(`${baseURL}/api/discount/points`, {
+						headers: {
+							Authorization: auth?.token || "",
+						},
+					});
+					if (pointsResponse.ok) {
+						const pointsData = await pointsResponse.json();
+						// Dispatch custom event to update points in the navbar
+						const pointsUpdatedEvent = new CustomEvent("pointsUpdated", {
+							detail: pointsData.points || 0,
+						});
+						window.dispatchEvent(pointsUpdatedEvent);
+					}
+				} catch (pointsError) {
+					console.error("Error fetching updated points:", pointsError);
+				}
+			}
+
 			checkout();
 			setPaymentSuccess(true);
 		} catch (error) {

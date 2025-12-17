@@ -102,8 +102,15 @@ export const createOrder = async (req, res) => {
 			updateData["usage.ordersToday"] = 1;
 		}
 
+		// Calculate discount points earned: 1 point per $40 spent, rounded down
+		const pointsEarned = Math.floor(totalAmount / 40);
+		
+		// Update user usage and discount points after successful order creation
+		const currentPoints = user.discountPoints || 0;
+		updateData["discountPoints"] = currentPoints + pointsEarned;
+
 		await userCollection.updateOne(
-			{ _id: user.id },
+			{ _id: user._id },
 			{ $set: updateData }
 		);
 
